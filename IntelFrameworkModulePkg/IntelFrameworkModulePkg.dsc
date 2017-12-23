@@ -192,7 +192,16 @@
     <LibraryClasses>
       IoLib|MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
   }
-  
+
+  #
+  # 3-rd party drivers
+  #
+  UndervoltSmm/UndervoltSmm.inf {
+    <LibraryClasses>
+      DxeSmmDriverEntryPoint|IntelFrameworkPkg/Library/DxeSmmDriverEntryPoint/DxeSmmDriverEntryPoint.inf
+      MemoryAllocationLib|MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
+  }
+
 [Components.IPF]
   IntelFrameworkModulePkg/Universal/CpuIoDxe/CpuIoDxe.inf {
     <LibraryClasses>

@@ -1,0 +1,34 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UndervoltSmm
+  FILE_GUID                      = 1DB43EC9-DF5F-4CF5-AAF0-0E85DB4E149A
+  PI_SPECIFICATION_VERSION       = 0x0001000A  
+  MODULE_TYPE                    = DXE_SMM_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = EfiDriverEntry
+
+[Sources]
+  UndervoltSmm.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+  UefiCpuPkg/UefiCpuPkg.dec
+
+[LibraryClasses]
+  UefiLib
+  BaseMemoryLib
+  MemoryAllocationLib
+  DxeSmmDriverEntryPoint
+
+[Protocols]
+  gEfiSimpleTextOutProtocolGuid
+  gEfiMpServiceProtocolGuid
+  gEfiS3SmmSaveStateProtocolGuid
+
+[Depex]
+  gEfiSimpleTextOutProtocolGuid AND
+  gEfiMpServiceProtocolGuid AND
+  gEfiS3SmmSaveStateProtocolGuid
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /D MDEPKG_NDEBUG
