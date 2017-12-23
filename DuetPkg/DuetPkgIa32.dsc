@@ -266,6 +266,7 @@
   # Sample Application
   #
   MdeModulePkg/Application/HelloWorld/HelloWorld.inf
+  ForceOverclockDxe/ForceOverclockDxe.inf
 
 ###################################################################################################
 #
