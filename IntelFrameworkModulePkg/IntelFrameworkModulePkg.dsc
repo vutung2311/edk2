@@ -190,7 +190,7 @@
     <LibraryClasses>
       IoLib|MdePkg/Library/BaseIoLibIntrinsic/BaseIoLibIntrinsic.inf
   }
-  
+
 [Components.IPF]
   IntelFrameworkModulePkg/Universal/CpuIoDxe/CpuIoDxe.inf {
     <LibraryClasses>

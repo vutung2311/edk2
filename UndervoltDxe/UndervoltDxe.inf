@@ -1,0 +1,37 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = UndervoltDxe
+  FILE_GUID                      = 1DB43EC9-DF5F-4CF5-AAF0-0E85DB4E149A
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = UndervoltDxeEntryPoint
+
+[Sources]
+  UndervoltDxe.c
+  Overclock.c
+  Overclock.h
+  SystemInformation.c
+  SystemInformation.h
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  BaseMemoryLib
+  UefiLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+  UefiRuntimeServicesTableLib
+  MemoryAllocationLib
+
+[Protocols]
+  gEfiSimpleTextOutProtocolGuid
+  gEfiMpServiceProtocolGuid
+
+[Depex]
+  gEfiSimpleTextOutProtocolGuid AND
+  gEfiMpServiceProtocolGuid
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /favor:INTEL64 /D MDEPKG_NDEBUG /D UNDERVOLT_DXE
+  MSFT:*_*_*_DLINK_FLAGS = /ignore:4281

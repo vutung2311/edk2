@@ -152,5 +152,17 @@
   }
   UefiCpuPkg/Universal/Acpi/S3Resume2Pei/S3Resume2Pei.inf
 
+#
+# 3-rd party drivers
+#
+
+  UndervoltDxe/EfiVariableProxyDxe.inf
+
+  UndervoltDxe/UndervoltDxe.inf {
+    <LibraryClasses>
+        MemoryAllocationLib|MdePkg/Library/UefiMemoryAllocationLib/UefiMemoryAllocationLib.inf
+        BaseMemoryLib|MdePkg/Library/BaseMemoryLibOptDxe/BaseMemoryLibOptDxe.inf
+  }
+
 [BuildOptions]
   *_*_*_CC_FLAGS = -D DISABLE_NEW_DEPRECATED_INTERFACES

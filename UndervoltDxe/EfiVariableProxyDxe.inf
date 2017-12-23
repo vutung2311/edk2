@@ -1,0 +1,30 @@
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = EfiVariableProxyDxe
+  FILE_GUID                      = DD4995E2-5A16-43E7-A73F-F1EDB66E6850
+  MODULE_TYPE                    = DXE_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = EfiVariableProxyDxeEntryPoint
+
+[Sources]
+  EfiVariableProxyDxe.c
+
+[Packages]
+  MdePkg/MdePkg.dec
+
+[LibraryClasses]
+  UefiLib
+  UefiDriverEntryPoint
+  UefiBootServicesTableLib
+
+[Protocols]
+  gEfiSimpleTextOutProtocolGuid
+  gEfiVariableArchProtocolGuid
+
+[Depex]
+  gEfiSimpleTextOutProtocolGuid AND
+  gEfiVariableArchProtocolGuid
+
+[BuildOptions]
+  MSFT:*_*_*_CC_FLAGS = /favor:INTEL64 /D MDEPKG_NDEBUG
+  MSFT:*_*_*_DLINK_FLAGS = /ignore:4281
